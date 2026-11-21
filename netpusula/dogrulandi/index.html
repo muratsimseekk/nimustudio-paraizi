@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NetPusula — E-posta doğrulama</title><style>
+:root{--zemin:#FAF7F2;--yazi:#2B2622;--soluk:#6F665E;--vurgu:#D97757;--cizgi:#E7DFD5;--kart:#fff}
+@media (prefers-color-scheme:dark){:root{--zemin:#1C1917;--yazi:#EDE7E0;--soluk:#A8A097;--cizgi:#3A342F;--kart:#26221F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--yazi);font:16px/1.65 -apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}
+header{max-width:760px;margin:0 auto;padding:20px 16px 0;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+header a{color:var(--soluk);text-decoration:none;font-size:14px}
+header .marka{color:var(--yazi);font-weight:700;font-size:16px;margin-right:auto}
+h1{font-size:28px;line-height:1.25;margin:8px 0 16px}
+h2{font-size:20px;margin:32px 0 8px}
+a{color:var(--vurgu)}
+.tablo{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--kart)}
+th,td{border:1px solid var(--cizgi);padding:8px 10px;text-align:left;vertical-align:top}
+blockquote{margin:12px 0;padding:8px 14px;border-left:3px solid var(--vurgu);color:var(--soluk)}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:12px;padding:16px 20px;margin:16px 0}
+footer{color:var(--soluk);font-size:13px;margin-top:48px}
+</style></head>
+<body><header><a class="marka" href="/">nimustudio</a>
+<a href="/netpusula/gizlilik">Gizlilik</a><a href="/netpusula/kosullar">Koşullar</a>
+<a href="/netpusula/hesap-silme">Hesap silme</a></header>
+<main><div id="tamam"><h1>E-postan doğrulandı ✓</h1>
+<div class="kart"><p>Hesabın hazır. <strong>NetPusula</strong> uygulamasına dön ve e-posta adresin ile
+şifrenle giriş yap.</p></div></div>
+<div id="hata" hidden><h1>Bağlantı geçersiz</h1>
+<div class="kart"><p>Bu doğrulama bağlantısının süresi dolmuş ya da daha önce kullanılmış.</p>
+<p>Uygulamada e-posta ve şifrenle giriş yapmayı dene; e-postan henüz doğrulanmadıysa uygulama
+sana <strong>yeniden gönder</strong> seçeneği sunar.</p></div></div>
+<p>Sorun yaşarsan: <a href="mailto:info@nimustudio.com">info@nimustudio.com</a></p>
+<script>
+var p = new URLSearchParams(location.hash.slice(1) + '&' + location.search.slice(1));
+if (p.get('error') || p.get('error_code')) {
+  document.getElementById('tamam').hidden = true;
+  document.getElementById('hata').hidden = false;
+}
+</script>
+
+<footer>© nimustudio · Murat Şimşek · Şehitkamil / Gaziantep · <a href="mailto:info@nimustudio.com">info@nimustudio.com</a></footer>
+</main></body></html>
